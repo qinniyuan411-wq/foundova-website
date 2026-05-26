@@ -11,9 +11,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body { font-family: "Roboto", sans-serif; font-weight: 400; background: #0a0a0a; color: #fff; -webkit-font-smoothing: antialiased; }
-    .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; color: #fff; }
-    .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,8,12,0.72) 0%, rgba(6,8,12,0.45) 40%, rgba(6,8,12,0.68) 100%), url("prop/wheeled_robot_background_2.png") center center / cover no-repeat; }
-    .hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 35%, transparent 0%, rgba(0,0,0,0.35) 100%); }
+    .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; color: #fff; overflow: hidden; }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-bg-image, .hero-bg-image img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+    .hero-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,8,12,0.72) 0%, rgba(6,8,12,0.45) 40%, rgba(6,8,12,0.68) 100%);
+    }
+    .hero-bg-overlay::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 35%, transparent 0%, rgba(0,0,0,0.35) 100%); }
     .header { position: relative; z-index: 10; padding: 28px 48px; }
     .logo img { height: 20px; display: block; border-radius: 6px; }
     .hero-main { position: relative; z-index: 5; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 32px 48px; }
@@ -35,7 +40,13 @@
 </head>
 <body>
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-media" aria-hidden="true">
+      <picture class="hero-bg-image">
+        <source srcset="prop/wheeled_robot_background_2.webp" type="image/webp" />
+        <img src="prop/wheeled_robot_background_2.jpg" alt="" />
+      </picture>
+      <div class="hero-bg-overlay"></div>
+    </div>
     <header class="header"><a href="home.html" class="logo"><img src="prop/foundova_logo_2.png" alt="Foundova" /></a></header>
     <main class="hero-main">
       <h1 class="hero-title">
