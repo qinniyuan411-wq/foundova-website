@@ -9,8 +9,8 @@
     @font-face { font-family: "Roboto"; src: url("prop/Roboto-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
     @font-face { font-family: "Roboto"; src: url("prop/Roboto-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Roboto", sans-serif; font-weight: 400; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+    html, body { height: 100%; }
+    body { font-family: "Roboto", sans-serif; font-weight: 400; background: #0a0a0a; color: #fff; -webkit-font-smoothing: antialiased; }
     .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; color: #fff; }
     .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,8,12,0.72) 0%, rgba(6,8,12,0.45) 40%, rgba(6,8,12,0.68) 100%), url("prop/wheeled_robot_background_2.png") center center / cover no-repeat; }
     .hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 35%, transparent 0%, rgba(0,0,0,0.35) 100%); }
@@ -27,50 +27,8 @@
     .scroll-icon { width: 18px; height: 28px; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 9px; position: relative; }
     .scroll-icon::after { content: ""; position: absolute; top: 5px; left: 50%; width: 3px; height: 6px; margin-left: -1.5px; background: rgba(255,255,255,0.7); border-radius: 2px; animation: wheel 2s ease-in-out infinite; }
     @keyframes wheel { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(6px); opacity: 0.3; } }
-    #careers { padding: 112px 56px 140px; background: #fff; }
-    .careers-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: minmax(240px, 280px) 1fr; gap: clamp(48px, 8vw, 120px); align-items: start; }
-    .side { position: sticky; top: 56px; padding-top: 6px; }
-    .side-intro { display: flex; flex-direction: column; }
-    .side-hiring { display: inline-flex; align-items: center; align-self: flex-start; gap: 8px; font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.04em; color: #737373; margin-bottom: 18px; line-height: 1; }
-    .side-hiring::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #111; flex-shrink: 0; }
-    .side-role { font-size: clamp(1.3125rem, 2.2vw, 1.5rem); font-weight: 500; line-height: 1.32; letter-spacing: -0.025em; color: #111; margin: 0; white-space: nowrap; }
-    .side .loc {
-      margin-top: 16px;
-      font-size: 0.8125rem;
-      color: #a3a3a3;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
-    .side-contact { margin-top: 32px; }
-    .side-contact a {
-      font-size: 1.0625rem;
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(17,17,17,0.18);
-      transition: border-color 0.25s ease;
-      letter-spacing: -0.01em;
-    }
-    .side-contact a:hover { border-color: #111; }
-    .main { max-width: 540px; padding-top: 2px; }
-    .intro { margin-bottom: 72px; }
-    .intro p { font-size: 1.0625rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 1.15em; }
-    .intro p:last-child { margin-bottom: 0; }
-    .block + .block { margin-top: 72px; }
-    .block-label { font-size: 0.8125rem; font-weight: 400; color: #888; margin-bottom: 28px; }
-    .block-body p { font-size: 0.9375rem; line-height: 1.85; color: #444; margin-bottom: 1.35em; }
-    .block-body p:last-child { margin-bottom: 0; }
-    .closing { margin-top: 80px; font-size: 0.9375rem; line-height: 1.75; color: #666; max-width: 36em; }
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: var(--d, 0ms); }
-    .reveal.is-in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
     @media (max-width: 860px) {
       .header { padding: 20px 24px; }
-      #careers { padding: 72px 24px 96px; }
-      .careers-inner { grid-template-columns: 1fr; gap: 40px; }
-      .side { position: static; padding-top: 0; padding-bottom: 8px; }
-      .intro { margin-bottom: 56px; }
-      .block + .block { margin-top: 56px; }
-      .closing { margin-top: 56px; }
       .hero-title-line, .hero-desc-line--after { white-space: normal; }
     }
   </style>
@@ -78,7 +36,7 @@
 <body>
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
-    <header class="header"><a href="#" class="logo"><img src="prop/foundova_logo_2.png" alt="Foundova" /></a></header>
+    <header class="header"><a href="home.html" class="logo"><img src="prop/foundova_logo_2.png" alt="Foundova" /></a></header>
     <main class="hero-main">
       <h1 class="hero-title">
         <span class="hero-title-line">Physical AI Infrastructure</span>
@@ -89,58 +47,7 @@
         <span class="hero-desc-line hero-desc-line--after">robot hardware, real-world data systems, and remote operation infrastructure.</span>
       </p>
     </main>
-    <a href="#careers" class="scroll-link"><div class="scroll-icon" aria-hidden="true"></div>Careers</a>
+    <a href="careers.html" class="scroll-link"><div class="scroll-icon" aria-hidden="true"></div>Careers</a>
   </section>
-  <section id="careers">
-    <div class="careers-inner">
-      <aside class="side">
-        <div class="side-intro reveal" style="--d: 0ms">
-          <p class="side-hiring">We&apos;re hiring</p>
-          <h2 class="side-role">Robotics Sales Engineer</h2>
-          <p class="loc">Boston</p>
-          <p class="side-contact"><a href="mailto:contact@foundova.ai">contact@foundova.ai</a></p>
-        </div>
-      </aside>
-      <div class="main">
-        <div class="intro">
-          <p class="reveal" style="--d: 60ms">Foundova Robotics is scaling its North American operations. We are looking for a results-driven Sales Engineer to join our founding U.S. team.</p>
-          <p class="reveal" style="--d: 120ms">As an early member of Foundova Robotics Inc., you will be at the forefront of the physical AI revolution, turning cutting-edge technology into real-world solutions for our customers.</p>
-        </div>
-        <div class="block">
-          <p class="block-label reveal" style="--d: 0ms">What You Will Do</p>
-          <div class="block-body">
-            <p class="reveal" style="--d: 80ms">Drive Growth: Lead the sales cycle for our robotic arms and physical AI solutions.</p>
-            <p class="reveal" style="--d: 140ms">Build Partnerships: Develop and manage strategic relationships with key accounts and integrators.</p>
-            <p class="reveal" style="--d: 200ms">Market Expansion: Identify new industry use cases and execute territory growth strategies.</p>
-            <p class="reveal" style="--d: 260ms">Collaborate: Work closely with our Silicon Valley and global engineering teams to align customer needs with product roadmaps.</p>
-            <p class="reveal" style="--d: 320ms">Represent: Lead high-impact demos and site visits, and represent Foundova Robotics at major industry events.</p>
-          </div>
-        </div>
-        <div class="block">
-          <p class="block-label reveal" style="--d: 0ms">What We&apos;re Looking For</p>
-          <div class="block-body">
-            <p class="reveal" style="--d: 80ms">Industry Edge: Experience in robotics, AI, automation, or industrial tech sales is preferred.</p>
-            <p class="reveal" style="--d: 140ms">Startup Mindset: Highly self-driven, comfortable with ambiguity, and ready to build from the ground up.</p>
-            <p class="reveal" style="--d: 200ms">Communication: Strong storytelling and negotiation skills.</p>
-            <p class="reveal" style="--d: 260ms">Mobility: Willingness to travel across the U.S. to meet customers where they are.</p>
-            <p class="reveal" style="--d: 320ms">Work Authorization: Applicants must be authorized to work for any employer in the U.S. We are unable to provide visa sponsorship at this time.</p>
-          </div>
-        </div>
-        <p class="closing reveal" style="--d: 100ms">Join us and help shape the future of Physical AI and robotics.</p>
-      </div>
-    </div>
-  </section>
-  <script>
-    (function () {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var items = document.querySelectorAll(".reveal");
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { entry.target.classList.add("is-in"); observer.unobserve(entry.target); }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-      items.forEach(function (el) { observer.observe(el); });
-    })();
-  </script>
 </body>
 </html>
